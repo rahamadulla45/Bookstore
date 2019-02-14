@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Detail{% endblock title %}
+
+{% block content %}
+
+<br>
+<div class="card">
+  <h5 class="card-header">Book Details</h5>
+  {% if book.image %}
+    <img class="card-img-top" src="{{restaurant.logo.url}}" alt="Hey Noob, look at me...">
+  {% endif %}
+  <div class="card-body">
+    <h5 class="card-title">The book  : {{book.name}}</h5>
+    <p class="card-text">{{book.about|linebreaks}}</p>
+    <p class="card-text">Condition: {{book.condition}}</p>
+    <p class="card-text">Author: {{book.author_name}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+            <li class="list-group-item text-center">
+                <a href="{% url 'book-buy' book_id=book.id %}" class="btn btn-outline-dark">Buy</a>
+            </li>
+          </ul>
+</div>
+{% endblock content %}
